@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quick Start</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
+  </head>
+
+  <body>
+    <div class="navbar">
+      <a class="nav-item" href="index.html">react-ts</a>
+      <a class="nav-item" href="react.js.html">react-js</a>
+      <a class="nav-item" href="express.ts.html">express-ts</a>
+
+      <!-- Add more links as needed -->
+    </div>
+    <div class="container">
+      <div class="markdown first-item">
+        <h1>ExpressJs + TypeScript</h1>
+        <p>1. Create a package.json:</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this,this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>npm init -y </code></pre>
+        </div>
+        <p>2. Install TypeScript,NodeMon as a dev:</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this,this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>npm install typescript nodemon --save-dev </code></pre>
+        </div>
+        <p>3. Add package.json following:</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this,this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>
+"scripts": {
+    "start": "node dist/index.js",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"
+},
+    </code></pre>
+        </div>
+        <p>4. Creating a 'tsconfig.json' in project root:</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this,this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>
+                   
+{
+    "compilerOptions": {
+    "target": "ES2019",
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true
+                       }, 
+    "include": [
+    "*.ts"
+    ],
+    "exclude": [
+    "node_modules"
+    ]
+}
+                   </code></pre>
+        </div>
+        <p>4. Install the required npm packages:</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this,this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>npm install express mongoose @types/express @types/mongoose
+                </code></pre>
+        </div>
+        <p>5. Run the Project in Development Mode:</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this,this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>npm run dev
+                </code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+    <div class="markdown">   
+    <h1>MVC Design</h1> 
+    <img class="file-image" src="/images/mvc-express.png" alt="" srcset="">
+    </div>
+    </div>
+
+
+    <div class="container">
+      <div class="markdown">
+        <h1>Major Packages</h1>
+        <p>1. Body Parser</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this, this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>npm install body-parser</code></pre>
+        </div>
+        <p>2. Helmet </p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this, this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>npm install helmet @types/helmet</code></pre>
+        </div>
+        <p>3. CORS</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this, this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>npm install cors @types/cors</code></pre>
+        </div>
+        <p>4. Dotenv</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this, this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>npm install dotenv @types/dotenv</code></pre>
+        </div>
+
+        <p>5. Jest</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this, this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>npm install jest @types/jest</code></pre>
+        </div>
+        <p>6. Joi</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this, this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>npm install joi @types/joi</code></pre>
+        </div>
+        <p>7. Validator</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this, this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>npm install validator @types/validator</code></pre>
+        </div>
+        <p>8. Multer</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this, this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>npm install multer @types/multer</code></pre>
+        </div>
+        <p>9. Bcrypt</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this, this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>npm install bcrypt @types/bcrypt</code></pre>
+        </div>
+        <p>10. Jsonwebtoken</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this, this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>npm install jsonwebtoken @types/jsonwebtoken</code></pre>
+        </div>
+        <p>11. Passport</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this, this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>npm install passport @types/passport</code></pre>
+        </div>
+        <p>12. Passport local</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this, this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>npm install passport-local @types/passport-local</code></pre>
+        </div>
+        <p>13. Passport jwt</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this, this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>npm install passport-jwt @types/passport-jwt</code></pre>
+        </div>
+        
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
