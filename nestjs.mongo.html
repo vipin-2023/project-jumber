@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Start</title>
+ <link rel="stylesheet" href="style.css">
+ <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+</head>
+<body>
+    <div class="navbar">
+        <a class="nav-item " href="index.html">react-ts</a>
+        <a class="nav-item" href="react.js.html">react-js</a>
+        <a class="nav-item" href="express.ts.html">express-ts</a>
+        <a class="nav-item active" href="nestjs.mongo.html">nestjs-mongo-ts</a>
+
+       
+        <!-- Add more links as needed -->
+    </div>
+    <div class="container">
+        <div class="markdown first-item">
+            <h1>NestJs Server + MongoDb </h1>
+            <p>1. Install nestjs cli (if not):</p>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyText(this,this.parentElement.querySelector('code'))">Copy</button>
+                <pre><code>npm install -g @nestjs/cli</code></pre>
+            </div>
+            <p>2. Create a new NestJS project:</p>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyText(this,this.parentElement.querySelector('code'))">Copy</button>
+                <pre><code>nest new my-project </code></pre>
+            </div>
+            <p>3. Navigate to the Project Directory:</p>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyText(this,this.parentElement.querySelector('code'))">Copy</button>
+                <pre><code>cd my-project </code></pre>
+            </div>
+            <p>4. Generate a new module:</p>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyText(this,this.parentElement.querySelector('code'))">Copy</button>
+                <pre><code>nest g module module-name </code></pre>
+            </div>
+            <p>5. Generate a controller:</p>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyText(this,this.parentElement.querySelector('code'))">Copy</button>
+                <pre><code>nest g co module-name  </code></pre>
+            </div>
+            <p>6. Generate a service:</p>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyText(this,this.parentElement.querySelector('code'))">Copy</button>
+                <pre><code>nest g s module-name  </code></pre>
+            </div>
+            <p>7. Install Mongoose Packages:</p>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyText(this,this.parentElement.querySelector('code'))">Copy</button>
+                <pre><code>npm install @nestjs/mongoose mongoose                </code></pre>
+            </div>
+            <p>8.In root 'app.module.ts' file, import the 'MongooseModule' :</p>
+            <div class="code-block">
+              <button
+                class="copy-button"
+                onclick="copyText(this,this.parentElement.querySelector('code'))"
+              >
+                Copy
+              </button>
+              <pre><code>
+    
+@Module({
+    imports: [
+      MongooseModule.forRoot('mongodb://localhost/todo-list', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }),
+      TaskModule,
+    ],
+  })
+        </code></pre>
+            </div>
+            <p>9. task.model.ts  :</p>
+            <div class="code-block">
+              <button
+                class="copy-button"
+                onclick="copyText(this,this.parentElement.querySelector('code'))"
+              >
+                Copy
+              </button>
+              <pre><code>
+    
+                import * as mongoose from 'mongoose';
+
+                export const TaskSchema = new mongoose.Schema({
+                  title: String,
+                  description: String,
+                  done: Boolean,
+                });
+                
+                export interface Task extends mongoose.Document {
+                  id: string;
+                  title: string;
+                  description: string;
+                  done: boolean;
+                }
+                
+        </code></pre>
+            </div>
+            <p>10.task.module.ts :</p>
+            <div class="code-block">
+              <button
+                class="copy-button"
+                onclick="copyText(this,this.parentElement.querySelector('code'))"
+              >
+                Copy
+              </button>
+              <pre><code>
+    
+import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
+import { TaskController } from './task.controller';
+import { TaskService } from './task.service';
+import { TaskSchema } from './task.model';
+
+@Module({
+  imports: [MongooseModule.forFeature([{ name: 'Task', schema: TaskSchema }])],
+  controllers: [TaskController],
+  providers: [TaskService],
+})
+export class TaskModule {}
+
+                
+        </code></pre>
+            </div>
+            <p>11. task.service.ts :</p>
+            <div class="code-block">
+              <button
+                class="copy-button"
+                onclick="copyText(this,this.parentElement.querySelector('code'))"
+              >
+                Copy
+              </button>
+              <pre><code>
+    
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { Task } from './task.model';
+
+@Injectable()
+export class TaskService {
+  constructor(@InjectModel('Task') private readonly taskModel: Model<Task>) {}
+
+  // Implement your service methods using taskModel
+}
+
+                
+        </code></pre>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="markdown">
+            <h1>Major Packages</h1>
+            <p>1. React Router </p>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyText(this, this.parentElement.querySelector('code'))">Copy</button>
+                <pre><code>npm install react-router-dom</code></pre>
+            </div>
+            <p>2. Redux Toolkit </p>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyText(this, this.parentElement.querySelector('code'))">Copy</button>
+                <pre><code>npm install @reduxjs/toolkit</code></pre>
+            </div>
+            <p>3. Material-UI </p>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyText(this, this.parentElement.querySelector('code'))">Copy</button>
+                <pre><code>npm install @mui/material @mui/icons-material</code></pre>
+            </div>
+            <p>4. React Icons  </p>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyText(this, this.parentElement.querySelector('code'))">Copy</button>
+                <pre><code>npm install react-icons</code></pre>
+            </div>
+           
+            <p>5. Formik  </p>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyText(this, this.parentElement.querySelector('code'))">Copy</button>
+                <pre><code>npm install formik</code></pre>
+            </div>
+            <p>6. React Hook Form </p>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyText(this, this.parentElement.querySelector('code'))">Copy</button>
+                <pre><code>npm install react-hook-form</code></pre>
+            </div>
+            <p>7. Axios  </p>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyText(this, this.parentElement.querySelector('code'))">Copy</button>
+                <pre><code>npm install axios @types/axios</code></pre>
+            </div>
+            <p>8. React Testing Library  </p>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyText(this, this.parentElement.querySelector('code'))">Copy</button>
+                <pre><code>npm install @testing-library/react @testing-library/jest-dom</code></pre>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
