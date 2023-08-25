@@ -18,6 +18,17 @@ body {
   text-align: center;
   text-decoration: none;
 }
+.navbar {
+ padding: 0 10px;
+}
+
+.navbar .active{
+  padding: 14px 16px;
+  background-color: white;
+  color: black;
+ 
+  
+}
 .nav-item:hover {
   background-color: #555;
 }
