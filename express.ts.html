@@ -37,7 +37,7 @@
           >
             Copy
           </button>
-          <pre><code>npm install typescript nodemon --save-dev </code></pre>
+          <pre><code>npm install typescript ts-node nodemon --save-dev </code></pre>
         </div>
         <p>3. Add package.json following:</p>
         <div class="code-block">
@@ -48,10 +48,12 @@
             Copy
           </button>
           <pre><code>
-"scripts": {
-    "start": "node dist/index.js",
-    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"
-},
+                "scripts": {
+                "start": "node dist/index.js",
+                "dev": "nodemon",
+                "build": "tsc"
+                                    },
+            
     </code></pre>
         </div>
         <p>4. Creating a 'tsconfig.json' in project root:</p>
@@ -64,25 +66,41 @@
           </button>
           <pre><code>
                    
-{
-    "compilerOptions": {
-    "target": "ES2019",
-    "module": "CommonJS",
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
-    "esModuleInterop": true
-                       }, 
-    "include": [
-    "*.ts"
-    ],
-    "exclude": [
-    "node_modules"
-    ]
-}
+            {
+              "compilerOptions": {
+                "target": "ES6",
+                "module": "CommonJS",
+                "outDir": "./dist",
+                "rootDir": "./src",
+                "strict": true,
+                "esModuleInterop": true
+              }
+            }
+            
+            
                    </code></pre>
         </div>
-        <p>4. Install the required npm packages:</p>
+        <p>5. Creating a 'nodemon.json' in project root:</p>
+        <div class="code-block">
+          <button
+            class="copy-button"
+            onclick="copyText(this,this.parentElement.querySelector('code'))"
+          >
+            Copy
+          </button>
+          <pre><code>
+                   
+            {
+              "watch": ["src"],
+              "ext": "ts",
+              "exec": "ts-node ./src/index.ts"
+            }        
+            
+            
+        </code></pre>
+        </div>
+        
+        <p>6. Install the required npm packages:</p>
         <div class="code-block">
           <button
             class="copy-button"
@@ -93,7 +111,7 @@
           <pre><code>npm install express mongoose @types/express @types/mongoose
                 </code></pre>
         </div>
-        <p>5. Run the Project in Development Mode:</p>
+        <p>7. Run the Project in Development Mode:</p>
         <div class="code-block">
           <button
             class="copy-button"
